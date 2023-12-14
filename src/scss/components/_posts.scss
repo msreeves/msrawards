@@ -17,37 +17,6 @@ article.post {
     }
 }
 
-.post {
-    .listing-image {
-        overflow: hidden;
-
-        img {
-            transition: transform .5s ease;
-        }
-
-        &:hover {
-            img {
-                transform: scale(1.5);
-            }
-        }
-    }
-}
-
-.featured-media-inner {
-    img {
-        margin: 0;
-        object-fit: cover;
-        object-position: center;
-        overflow: hidden;
-        height: 100vh;
-        width: 100%;
-    }
-}
-
-figure.featured-media {
-    margin: 0;
-}
-
 .entry-header {
     max-width: 72rem;
     width: calc(100% - 4rem);
@@ -88,18 +57,6 @@ figure.featured-media {
         padding: 0 5px;
         font-size: 18px;
         display: inline-block;
-    }
-}
-
-.listing-sponsored-panel {
-    padding: 10px;
-
-    h3 {
-        color: $primary;
-    }
-
-    p {
-        color: $primary;
     }
 }
 
