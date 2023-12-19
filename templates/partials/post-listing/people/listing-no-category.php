@@ -8,6 +8,9 @@
             <?php if ( get_field('job_title') ) : ?>
             <p> <i class="fa fa-briefcase fa-xl" aria-hidden="true"></i> <?php print get_field('job_title') ?> </p>
              <?php endif; ?>
+             <?php if ( get_field('company') ) : ?>
+            <h3> <i class="fa fa-map-marker fa-xl" aria-hidden="true"></i> <?php print get_field('company') ?> </h3>
+             <?php endif; ?>
               <?php if ( get_field('profile') ) : ?>
             <p> <?php
                 $trim_length = 150;
@@ -18,8 +21,8 @@
                 $value = rtrim(substr($value,0,$trim_length)) .'...';
                 print $value;
                 }?></p>
-             <?php endif; ?>
               <a href="<?php echo the_permalink(); ?>"><button>Read Profile</button></a>
+                <?php endif; ?>
                 </div>
   </div>
        </div>

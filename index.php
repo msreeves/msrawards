@@ -22,7 +22,7 @@ $sponsors = get_field('main_sponsor' , 'option');
 ?>
 
 <main id="site-content">
-<?php if (is_page( 118 )) : ?>
+<?php if (is_page( 89 )) : ?>
   <?php if( get_field('hero' ,'option') ) : ?>
   <div class="p-5 background-image" style="background-image: url('<?php echo the_field('image', 'option'); ?>');">
   <div class="mask p-5" style="background-color: rgba(0, 0, 0, 0.2);">

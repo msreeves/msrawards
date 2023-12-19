@@ -5,6 +5,7 @@ $post_type = 'nominee';
 add_filter( "manage_{$post_type}_posts_columns", function ( $defaults ) {
 	
 	$defaults['title'] = 'Name';
+	$defaults['job-title'] = 'Job Title';
 	$defaults['company'] = 'Company';
     unset($defaults['date']);
 	unset($defaults['comments']);
@@ -15,6 +16,10 @@ add_filter( "manage_{$post_type}_posts_columns", function ( $defaults ) {
 // Handle the value for each of the new columns.
 add_action( "manage_{$post_type}_posts_custom_column", function ( $column_name, $post_id ) {
 	
+	if ( $column_name == 'job-title' ) {
+		echo get_field( 'job_title', $post_id );
+	}
+
 	if ( $column_name == 'company' ) {
 		echo get_field( 'company', $post_id );
 	}
@@ -29,7 +34,6 @@ add_filter( "manage_{$post_type}_posts_columns", function ( $defaults ) {
 	$defaults['title'] = 'Name';
 	$defaults['job-title'] = 'Job Title';
 	$defaults['company'] = 'Company';
-	$defaults['profile'] = 'Profile';
 	unset($defaults['taxonomy-award']);
     unset($defaults['date']);
 	unset($defaults['comments']);
@@ -45,10 +49,6 @@ add_action( "manage_{$post_type}_posts_custom_column", function ( $column_name, 
 	
 	if ( $column_name == 'company' ) {
 		echo get_field( 'company', $post_id );
-	}
-
-	if ( $column_name == 'profile' ) {
-		echo get_the_post_thumbnail( $post_id, 'thumbnail' );
 	}
 	
 }, 10, 2 );

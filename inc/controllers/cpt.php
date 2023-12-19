@@ -118,12 +118,14 @@ function be_register_taxonomies() {
 			'single_name'  => 'award',
 			'plural_name'  => 'Award',
 			'post_type'    => array ('nominee', 'partner', 'judge'),
+            'public'        => false, 
 		),
         	array(
 			'slug'         => 'location',
 			'single_name'  => 'Location',
 			'plural_name'  => 'Location',
 			'post_type'    => 'advert',
+            'public'        => false, 
 		),
 	);
 

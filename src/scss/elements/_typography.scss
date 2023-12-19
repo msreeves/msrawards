@@ -75,7 +75,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: $header-text;
+    font-family: $body-text;
     letter-spacing: 0.04em;
     font-weight: 800;
     line-height: 1.1;
@@ -83,8 +83,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {  
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     text-align: center;
+    font-family: $header-text;
 
     @include media(">tablet", "<=desktop") {
             font-size: 2.6rem;
@@ -93,6 +94,15 @@ h1 {
         @include media(">phone", "<=tablet") {
             font-size: 2.2rem;
         }
+}
+
+h2 {
+    font-size: 2.4rem;
+    font-family: $header-text;
+}
+
+h3 {
+    font-size: 1.8rem;
 }
 
 .advert {

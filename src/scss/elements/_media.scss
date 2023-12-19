@@ -27,6 +27,25 @@ img {
     width: 100%;
 }
 
+article {
+    .listing-image {
+        img {
+            height: 100vh;
+        }
+    }
+}
+
+.people {
+    .post {
+        .listing-image {
+            img {
+                height: 70vh;
+            }
+        }
+
+    }
+}
+
 .listing-image {
     .icon {
         text-align: center;

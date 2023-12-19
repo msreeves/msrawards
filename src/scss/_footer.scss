@@ -42,8 +42,8 @@ footer {
             }
     
                                                                   li {
-                                                                      margin: 10px;
-                                                                      font-size: 1.6rem;
+                                                                      margin: 0 5px;
+                                                                      font-size: 1.2rem;
                                 
                                                                       @include media(">phone", "<=tablet") {
                                                                           &:last-of-type {

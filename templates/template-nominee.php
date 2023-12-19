@@ -1,21 +1,21 @@
 <?php
 /**
- * Template Name: Nominee Template
- * Template Post Type: post, page
+ * Template Name: Nominees Template
  *
  * @package WordPress
  * @subpackage msrawards
- * @since msrawards 1.0
+ * @since msrsandbox 1.0
  */
 get_header();
 ?>
-<section>
+  <section class="people">
   <div class="container">
-      <div class="panel">
+    <div class="panel">
         <?php the_title( '<h1>', '</h1>' ); ?>
           <?php the_content(); ?>
-      </div>
-<div class="people-tabs">
+             <?php get_template_part( 'inc/controllers/searchbar' ); ?>
+</div>
+<div class="post-tabs">
 
   <?php $post_categories = get_terms('award'); // get all the categories ?>
 
@@ -39,9 +39,10 @@ get_header();
       $args = array(
         'post_type' => 'nominee',
         'posts_per_page' => -1,
-         'meta_key' => 'name',
-         'orderby' => 'meta_value',
-          'order' => 'ASC',
+        'meta_key'       => 'name',
+        'orderby'        => 'meta_value',
+        'order'          => 'ASC'
+
       );
       $all_posts = new WP_Query( $args );		
       ?>
@@ -49,11 +50,10 @@ get_header();
       <?php if ( $all_posts->have_posts() ) : ?>
             <div class="row">
           <?php while ( $all_posts->have_posts() ) : $all_posts->the_post(); ?>	
-              <?php get_template_part( 'templates/partials/post-listing/listing-people' ); ?>
-                 </div>
+              <?php get_template_part( 'templates/partials/post-listing/people/listing-category' ); ?>
           <?php endwhile; ?>
           <?php wp_reset_query() ?>
-   
+      </div>
       <?php endif; ?>
 
     </div>
@@ -65,9 +65,9 @@ get_header();
         $args = array(
           'post_type' => 'nominee',
           'posts_per_page'  => -1,
-          'meta_key' => 'name',
-          'orderby' => 'meta_value',
-          'order' => 'ASC',
+          'meta_key'       => 'name',
+          'orderby'        => 'meta_value',
+          'order'          => 'ASC',
           'tax_query' => array(
             array(
               'taxonomy' => 'award',
@@ -82,18 +82,18 @@ get_header();
         <?php if ( $posts->have_posts() ) : ?>
               <div class="row">
           <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>	
-          <?php get_template_part( 'templates/partials/post-listing/listing-people' ); ?>
-                </div>
+         <?php get_template_part( 'templates/partials/post-listing/people/listing-no-category' ); ?>
           <?php endwhile; ?>
           <?php wp_reset_query() ?>
+      </div>
         <?php endif; ?>
 
       </div>
-        </div>
     <? }  ?>
 
   </div>
- </div>
+        </div>
+        </div>
 </section>
 <?php
 get_footer();

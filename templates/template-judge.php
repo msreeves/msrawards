@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-<section>
+<section class="people">
   <div class="container">
       <div class="panel">
         <?php the_title( '<h1>', '</h1>' ); ?>
@@ -28,7 +28,7 @@ get_header();
       <?php if ( $all_partners->have_posts() ) : ?>
             <div class="row">
           <?php while ( $all_partners->have_posts() ) : $all_partners->the_post(); ?>	
-      <?php get_template_part( 'templates/partials/post-listing/listing-people' ); ?>
+      <?php get_template_part( 'templates/partials/post-listing/people/listing-category' ); ?>
           <?php endwhile; ?>
           <?php wp_reset_query() ?>
       </div>

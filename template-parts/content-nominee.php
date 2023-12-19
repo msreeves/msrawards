@@ -13,13 +13,32 @@
 
 ?>
 
+<section>
 <article <?php post_class(); ?> id="post-nominee<?php the_ID(); ?>">
 <div class="container">
 	<div class="row g-0">
 		<div class="col-md-6">
 			<div class="panel">
 	<div class="my-auto text-center">
-<?php if( have_rows('social') ): ?>
+           <?php
+
+$cat_list = array();
+
+foreach ( get_the_terms( $post->ID, 'award' ) as $cat ) {
+    if ( ! in_array( $cat->term_id, $exclude ) ) {
+        $cat_list[] = '<p><span>' . $cat->name . '</p></span>';
+    }
+}
+
+echo implode( ' ', $cat_list );?>
+	<?php the_title( '<h1>', '</h1>' ); ?>
+		<?php if (get_field('job_title')) : ?>
+			<h2> <i class="fa fa-briefcase" aria-hidden="true"></i> <?php print get_field('job_title') ?> </h2>
+			  <?php endif; ?>
+			  <?php if (get_field('company')) : ?>
+			<h2> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php print get_field('company') ?> </h2>
+			<?php endif; ?>
+			<?php if( have_rows('social') ): ?>
 
  <?php while( have_rows('social') ) : the_row(); ?>
 
@@ -28,20 +47,19 @@
      <?php endwhile; ?>
 
 <?php endif; ?>
-	<?php the_title( '<h1>', '</h1>' ); ?>
-		<?php if (get_field('job_title')) : ?>
-			<h2> <i class="fa fa-briefcase" aria-hidden="true"></i> <?php print get_field('job_title') ?> </h2>
-			  <?php endif; ?>
-			  <?php if (get_field('company')) : ?>
-			<h2> <i class="fa fa-map-marker" aria-hidden="true"></i> <?php print get_field('company') ?> </h2>
-			<?php endif; ?>
 		</div>
 		</div>
 			</div>
-		<div class="col-md-6">
-		<?php get_template_part( 'templates/partials/featured-image' ); ?>
+			<div class="col-md-6">
+			<div class="panel">
+			<div class="listing-image">
+			<?php the_post_thumbnail();
+echo get_post(get_post_thumbnail_id())->post_excerpt; ?>
+</div>
 		</div>
+			  </div>
 		<div class="col-sm-12">
+		<div class="panel">
 <?php if (get_field('profile')) : ?>
 	<div class="post-inner">
 		<div class="entry-content">
@@ -52,6 +70,7 @@
 
 	</div><!-- .post-inner -->
 	<?php endif; ?>
+</div>
 		</div>
 	</div>
 		</div>
@@ -72,3 +91,4 @@
 	</div><!-- .section-inner -->
 
 </article><!-- .post -->
+	</section>

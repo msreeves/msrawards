@@ -510,7 +510,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Notable", serif;
+  font-family: "DM Sans", sans-serif;
   letter-spacing: 0.04em;
   font-weight: 800;
   line-height: 1.1;
@@ -518,8 +518,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
   text-align: center;
+  font-family: "Notable", serif;
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   h1 {
@@ -530,6 +531,15 @@ h1 {
   h1 {
     font-size: 2.2rem;
   }
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-family: "Notable", serif;
+}
+
+h3 {
+  font-size: 1.8rem;
 }
 
 .advert p {
@@ -999,6 +1009,14 @@ img {
   width: 100%;
 }
 
+article .listing-image img {
+  height: 100vh;
+}
+
+.people .post .listing-image img {
+  height: 70vh;
+}
+
 .listing-image .icon {
   text-align: center;
 }
@@ -1102,8 +1120,8 @@ footer .navbar-nav a:hover::after {
   transform: scale(1, 1);
 }
 footer .navbar-nav li {
-  margin: 10px;
-  font-size: 1.6rem;
+  margin: 0 5px;
+  font-size: 1.2rem;
 }
 @media (min-width: 321px) and (max-width: 768px) {
   footer .navbar-nav li:last-of-type {
