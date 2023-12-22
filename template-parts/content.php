@@ -50,6 +50,7 @@ if(in_category(10)){
 
 	<div class="entry-content">
 		     <?php get_template_part('templates/partials/featured-image'); ?>
+			 <section>
 		<?php
 		the_content(
 			sprintf(
@@ -73,6 +74,7 @@ if(in_category(10)){
 			)
 		);
 		?>
+		</section>
 	</div><!-- .entry-content -->
     <?php
 if (is_singular('post'))
