@@ -26,7 +26,7 @@ get_header();
       ?>
 
       <?php if ( $all_partners->have_posts() ) : ?>
-             <div class="d-flex justify-content-around">
+             <div class="row">
           <?php while ( $all_partners->have_posts() ) : $all_partners->the_post(); ?>	
       <?php get_template_part( 'templates/partials/post-listing/listing-partner' ); ?>
           <?php endwhile; ?>
