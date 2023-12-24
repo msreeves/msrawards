@@ -43,6 +43,19 @@ article.post {
     }
 }
 
+.awards {
+    .panel {
+    .panel {
+        padding: 0;
+        margin-bottom: 0;
+
+        p {
+            font-weight: 800;
+        }
+    }
+  }
+}
+
 .panel {
     display: flex;
     flex-direction: column;

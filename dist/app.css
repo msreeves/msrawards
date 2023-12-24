@@ -365,6 +365,14 @@ article.post .entry-content p:first-of-type:first-letter {
   line-height: 1.476;
 }
 
+.awards .panel .panel {
+  padding: 0;
+  margin-bottom: 0;
+}
+.awards .panel .panel p {
+  font-weight: 800;
+}
+
 .panel {
   display: flex;
   flex-direction: column;
@@ -731,6 +739,11 @@ ol.commentlist li:before {
   font-size: 2rem;
 }
 
+.partner span {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 button {
   background: #702963;
   text-transform: uppercase;
@@ -1069,6 +1082,10 @@ article .listing-image img {
   width: 100%;
 }
 
+.awards .partner-listing-image img {
+  max-width: 120px;
+}
+
 .partner-listing-image img {
   -o-object-fit: contain;
      object-fit: contain;
@@ -1076,6 +1093,7 @@ article .listing-image img {
      object-position: center;
   overflow: hidden;
   height: 20vh;
+  max-width: 200px;
 }
 
 .fa-brands {

@@ -105,12 +105,22 @@ article {
         }
     }
 
+.awards {
+    .partner-listing-image {
+            img {
+                max-width: 120px;
+            }
+        }
+
+}
+
 .partner-listing-image {
     img {
         object-fit: contain;
         object-position: center;
         overflow: hidden;
         height: 20vh;
+        max-width: 200px;
     }
 }
 

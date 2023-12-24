@@ -70,7 +70,7 @@ if(in_category(10)){
        }  
 ?> 
                  </p>  
-            <h3><?php echo wp_kses_post( get_the_title( $previd ) ); ?></h3>                   
+            <h2><?php echo wp_kses_post( get_the_title( $previd ) ); ?></h2>                   
                      <p><?php echo wp_kses_post ( get_the_excerpt( $previd ) ); ?></p>
                       <a href="<?php echo esc_url( get_permalink( $previd ) ); ?>"><button>Read more</button></a>
                     </div>
@@ -102,7 +102,7 @@ if(in_category(10)){
        }  
 ?> 
                  </p>  
-            <h3><?php echo wp_kses_post( get_the_title( $nextid ) ); ?></h3>                
+            <h2><?php echo wp_kses_post( get_the_title( $nextid ) ); ?></h2>                
                      <p><?php echo wp_kses_post ( get_the_excerpt( $nextid ) ); ?></p>
                       <a href="<?php echo esc_url( get_permalink( $nextid ) ); ?>"><button>Read more</button></a>
                     </div>
