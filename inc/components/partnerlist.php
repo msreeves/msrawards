@@ -10,7 +10,7 @@ $heading = $args['title'];
 $introduction = $args['introduction'];
 ?>
 
-        <section>
+        <section class="partner">
       	<div class="container">
             <div class="panel">
           <h1 class="animate__animated animate__backInLeft"><?php echo $heading;?></h1>
