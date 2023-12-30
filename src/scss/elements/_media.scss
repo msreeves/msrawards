@@ -27,22 +27,48 @@ img {
     width: 100%;
 }
 
-article {
-    .listing-image {
-        img {
-            height: 100vh;
+.people {
+    .panel {
+        .listing-image {
+            img {
+                height: 70vh;
+
+                @include media(">tablet", "<=desktop") {
+                    object-fit: contain;
+                    height: 40vh;
+                }
+
+                @include media(">phone", "<=tablet") {
+                    object-fit: contain;
+                    height: 40vh;
+                }
+            }
         }
     }
 }
 
-.people {
-    .post {
-        .listing-image {
-            img {
-                height: 70vh;
+.post {
+    .listing-image {
+        overflow: hidden;
+
+        img {
+            transition: transform .5s ease;
+
+            @include media(">tablet", "<=desktop") {
+                height: 40vh;
+                width: 320px;
+            }
+
+            @include media(">phone", "<=tablet") {
+                height: 40vh;
             }
         }
 
+        &:hover {
+            img {
+                transform: scale(1.5);
+            }
+        }
     }
 }
 

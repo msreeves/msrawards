@@ -1,5 +1,6 @@
 article {
     background-color: $white;
+    padding: 10px;
 }
 
 article.post {
@@ -53,6 +54,30 @@ article.post {
         }
     }
   }
+}
+
+.post {
+    &.panel {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        @include media(">tablet", "<=desktop") {
+            flex-direction: row;
+            margin-bottom: 0;
+        }
+
+        @include media(">phone", "<=tablet") {
+            flex-direction: column;
+        }
+
+        .listing-text {
+            padding: 20px;
+
+            @include media(">tablet", "<=desktop") {
+                padding: 0 10px;
+                width: 100%;
+            }
+        }
+    }
 }
 
 .panel {

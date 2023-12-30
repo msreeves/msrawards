@@ -101,7 +101,7 @@ h2 {
     font-family: $header-text;
         
             @include media(">phone") {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 }
 
@@ -285,23 +285,24 @@ a {
         margin: 0.8075em 0;
     }
 
-        ol {
-            --icon-space: 1.3em;
-            padding: 0;
+          ol {
+              --icon-space: 1.3em;
+              list-style: none;
+              padding: 0;
     
-            &.commentlist {
-                li {
-                    padding-left: var(--icon-space);
+              &.commentlist {
+                  li {
+                      padding-left: var(--icon-space);
     
-                    &:before {
-                        content: "\f0f3";
-                        font-family: FontAwesome;
-                        display: inline-block;
-                        font-size: 2rem;
-                    }
-                }
-            }
-        }
+                      &:before {
+                          content: "\f0f3";
+                          font-family: FontAwesome;
+                          display: inline-block;
+                          font-size: 2rem;
+                      }
+                  }
+              }
+          }
 
         .partner {
             span {

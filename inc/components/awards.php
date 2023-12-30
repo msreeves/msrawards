@@ -17,7 +17,7 @@ $awards = $args['name'];
          <h3 class="animate__animated animate__backInLeft"><?php echo $introduction;?></h3>
 </div>
     <?php foreach( $awards as $award ): ?>
-              <div class="col-lg-4 mx-auto mb-3">
+              <div class="col-xl-4 col-lg-4 mx-auto mb-3">
               <div class="panel">
             <h2><?php echo esc_html( $award->name ); ?></h2>
             <p><?php echo esc_html( $award->description ); ?></p>
