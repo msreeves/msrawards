@@ -1070,9 +1070,7 @@ img {
 }
 @media (min-width: 321px) and (max-width: 768px) {
   .people .panel .listing-image img {
-    -o-object-fit: contain;
-       object-fit: contain;
-    height: 40vh;
+    height: 60vh;
   }
 }
 
