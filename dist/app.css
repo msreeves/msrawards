@@ -351,7 +351,6 @@ article.post .entry-content p:first-of-type:first-letter {
   width: calc(100% - 4rem);
   margin-left: auto;
   margin-right: auto;
-  padding: 3rem 0;
 }
 @media (min-width: 321px) and (max-width: 768px) {
   .entry-content {
@@ -393,6 +392,8 @@ article.post .entry-content p:first-of-type:first-letter {
   .post.panel .listing-text {
     padding: 0 10px;
     width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 
@@ -415,10 +416,6 @@ article.post .entry-content p:first-of-type:first-letter {
   padding: 0 5px;
   font-size: 18px;
   display: inline-block;
-}
-
-.listing-text {
-  padding: 20px;
 }
 
 .nav-tabs {
@@ -499,8 +496,8 @@ span {
 }
 span.sponsored {
   text-transform: uppercase;
-  text-align: center;
-  width: 100%;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
 }
 
 button {

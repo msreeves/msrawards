@@ -3,7 +3,7 @@
         <div class="listing-image">
              <?php get_template_part( 'templates/partials/featured-image' ); ?>
         </div>
-               <div class="listing-text my-auto text-center">
+               <div class="listing-text text-center">
                  <?php
 
 $cat_list = array();

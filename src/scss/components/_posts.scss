@@ -30,7 +30,6 @@ article.post {
     width: calc(100% - 4rem);
     margin-left: auto;
     margin-right: auto;
-    padding: 3rem 0;
 
     @include media(">phone", "<=tablet") {
             margin: 0;
@@ -75,6 +74,8 @@ article.post {
             @include media(">tablet", "<=desktop") {
                 padding: 0 10px;
                 width: 100%;
+                margin-top: auto;
+                margin-bottom: auto;
             }
         }
     }
@@ -96,15 +97,11 @@ article.post {
     span {
         background-color: $primary;
         color: $white;
-        margin: 0 5px 0 0;
+        margin: 0 5px 10px 0;
         padding: 0 5px;
         font-size: 18px;
         display: inline-block;
     }
-}
-
-.listing-text {
-    padding: 20px;
 }
 
 
