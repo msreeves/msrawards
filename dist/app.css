@@ -412,7 +412,7 @@ article.post .entry-content p:first-of-type:first-letter {
 .panel span {
   background-color: #702963;
   color: #fff;
-  margin: 0 5px 0 0;
+  margin: 0 5px 10px 0;
   padding: 0 5px;
   font-size: 18px;
   display: inline-block;
@@ -1107,14 +1107,18 @@ img {
   transform: scale(1.5);
 }
 
-.listing-image .icon {
+.icon {
   text-align: center;
 }
-.listing-image .icon img {
+.icon img {
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
   height: 10vh;
 }
+
 .listing-image img {
   margin: 0;
   -o-object-fit: cover;
