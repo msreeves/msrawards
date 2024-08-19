@@ -20,17 +20,12 @@
 		<div class="col-xl-6 col-lg-6">
 			<div class="panel">
 	<div class="my-auto text-center">
-           <?php
-
-$cat_list = array();
-
-foreach ( get_the_terms( $post->ID, 'award' ) as $cat ) {
-    if ( ! in_array( $cat->term_id, $exclude ) ) {
-        $cat_list[] = '<p><span>' . $cat->name . '</p></span>';
+  				   <?php 
+    $terms = get_the_terms( $post->ID, 'award' ); 
+    foreach($terms as $term) {
+      echo '<span>' . $term->name . '</span>';
     }
-}
-
-echo implode( ' ', $cat_list );?>
+?>
 	<?php the_title( '<h1>', '</h1>' ); ?>
 		<?php if (get_field('job_title')) : ?>
 			<h2> <i class="fa fa-briefcase" aria-hidden="true"></i> <?php print get_field('job_title') ?> </h2>

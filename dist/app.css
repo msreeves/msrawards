@@ -332,10 +332,13 @@ article {
   padding: 10px;
 }
 
-article.post .entry-content p:first-of-type:first-letter {
+article.post .entry-content section:first-letter {
   font-size: 8.5rem;
   font-weight: bold;
   color: #702963;
+}
+article.post .entry-content ol {
+  list-style: decimal;
 }
 
 .entry-header {

@@ -4,17 +4,12 @@
              <?php get_template_part( 'templates/partials/featured-image' ); ?>
         </div>
                <div class="listing-text text-center">
-                 <?php
-
-$cat_list = array();
-
-foreach ( get_the_terms( $post->ID, 'award' ) as $cat ) {
-    if ( ! in_array( $cat->term_id, $exclude ) ) {
-        $cat_list[] = '<span>' . $cat->name . '</span>';
+ 				   <?php 
+    $terms = get_the_terms( $post->ID, 'award' ); 
+    foreach($terms as $term) {
+      echo '<span>' . $term->name . '</span>';
     }
-}
-
-echo implode( ' ', $cat_list );?>
+?>
             <h2><?php the_title() ?></h2>
             <?php if ( get_field('job_title') ) : ?>
             <h3> <i class="fa fa-briefcase fa-xl" aria-hidden="true"></i> <?php print get_field('job_title') ?> </h3>

@@ -10,16 +10,11 @@ $link = get_field('link');
     <a class="m-1" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">  <?php get_template_part( 'templates/partials/featured-image' ); ?></a>
           </div>
                <p> Awards sponsoring:</p>
-                   <?php
-
-$cat_list = array();
-
-foreach ( get_the_terms( $post->ID, 'award' ) as $cat ) {
-    if ( ! in_array( $cat->term_id, $exclude ) ) {
-        $cat_list[] = '<span class="m-1">' . $cat->name . '</span>';
+            				   <?php 
+    $terms = get_the_terms( $post->ID, 'award' ); 
+    foreach($terms as $term) {
+      echo '<span>' . $term->name . '</span>';
     }
-}
-
-echo implode( ' ', $cat_list );?>
+?>
          </div>
              </div>
