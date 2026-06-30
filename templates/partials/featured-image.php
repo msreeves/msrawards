@@ -1,43 +1,34 @@
 <?php
 /**
- * Displays the featured image
+ * Displays the featured image with card media frame on archives.
  *
- * @package WordPress
- * @subpackage msrawards
- * @since msrawards 1.0
+ * @package msrawards
  */
 
-if ( has_post_thumbnail() && ! post_password_required() ) {
+if ( ! has_post_thumbnail() || post_password_required() ) {
+	return;
+}
 
-	$featured_media_inner_classes = '';
-
-	// Make the featured media thinner on archive pages.
-	if ( ! is_single() ) {
-		$featured_media_inner_classes .= ' medium';
-	}
+if ( is_singular() ) {
 	?>
-
 	<figure class="featured-media">
-
-		<div class="featured-media-inner <?php echo $featured_media_inner_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
-
+		<div class="featured-media-inner">
 			<?php
-			the_post_thumbnail();
-
+			the_post_thumbnail(
+				'large',
+				array(
+					'class' => 'msr-single-media__img',
+				)
+			);
 			$caption = get_the_post_thumbnail_caption();
-
 			if ( $caption ) {
-				?>
-
-				<figcaption class="wp-caption-text"><?php echo wp_kses_post( $caption ); ?></figcaption>
-
-				<?php
+				echo '<figcaption class="wp-caption-text">' . esc_html( $caption ) . '</figcaption>';
 			}
 			?>
-
-		</div><!-- .featured-media-inner -->
-
-	</figure><!-- .featured-media -->
-
+		</div>
+	</figure>
 	<?php
+	return;
 }
+
+msrawards_render_card_media();

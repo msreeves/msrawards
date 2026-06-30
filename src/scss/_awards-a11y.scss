@@ -1,0 +1,153 @@
+// Accessibility — focus rings, screen reader utilities (dark prestige theme)
+body.msr-awards {
+	--awards-focus-ring: #{$gold};
+	--awards-focus-offset: 3px;
+}
+
+.awards-skip-link {
+	position: absolute;
+	top: 0.5rem;
+	left: 0.5rem;
+	z-index: 2000;
+	padding: 0.65rem 1rem;
+	background: $bg-dark;
+	color: $text-primary;
+	font-weight: 600;
+	text-decoration: none;
+	border-radius: var(--msr-radius, 2px);
+	transform: translateY(-140%);
+	transition: transform 0.2s ease;
+
+	&:focus,
+	&:focus-visible {
+		transform: translateY(0);
+		outline: 2px solid var(--awards-focus-ring, #{$gold});
+		outline-offset: var(--awards-focus-offset, 3px);
+	}
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+body.msr-awards {
+	a:focus:not(:focus-visible),
+	button:focus:not(:focus-visible),
+	.btn:focus:not(:focus-visible),
+	input:focus:not(:focus-visible),
+	select:focus:not(:focus-visible),
+	textarea:focus:not(:focus-visible),
+	.awards-filter-bar__tab:focus:not(:focus-visible) {
+		outline: none;
+		box-shadow: none;
+	}
+
+	a:focus-visible,
+	button:focus-visible,
+	.btn:focus-visible,
+	.btn.btn-primary:focus-visible,
+	.btn.btn-outline-primary:focus-visible,
+	.btn.btn-outline-secondary:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible,
+	.form-control:focus-visible,
+	.awards-filter-bar__link:focus-visible,
+	.awards-filter-bar__tab:focus-visible,
+	.awards-gallery-grid__link:focus-visible,
+	.navbar-toggler:focus-visible,
+	.pagination a.page-numbers:focus-visible,
+	.msr-card-media:focus-visible,
+	.nominee-card a:focus-visible {
+		outline: 2px solid var(--awards-focus-ring, #{$gold});
+		outline-offset: var(--awards-focus-offset, 3px);
+	}
+
+	#cssmenu a:focus-visible {
+		outline-color: var(--awards-focus-ring, #{$gold});
+		outline-offset: 2px;
+	}
+
+	.site-header .msr-primary-cta {
+		.btn:focus-visible {
+			outline: 2px solid var(--awards-focus-ring, #{$gold});
+			outline-offset: 3px;
+		}
+	}
+
+	.btn-load-more:focus-visible {
+		outline: 2px solid var(--awards-focus-ring, #{$gold});
+		outline-offset: 3px;
+	}
+
+	// Touch targets — global (audit flags interactive elements <44px)
+	.btn,
+	.btn-sm,
+	.btn-load-more,
+	.msr-primary-cta__main,
+	.navbar-brand,
+	.awards-filter-bar__link,
+	.awards-filter-bar__tab,
+	.post-card__categories a,
+	.awards-site-footer__links a,
+	.awards-site-footer__social-link,
+	header #cssmenu > ul > li > a,
+	[id^='awards-carousel-'] a {
+		min-height: 2.75rem;
+	}
+
+	.btn,
+	.btn-sm,
+	.btn-load-more,
+	.msr-primary-cta__main,
+	.navbar-brand,
+	.awards-filter-bar__link,
+	.awards-filter-bar__tab,
+	.post-card__categories a,
+	.awards-site-footer__links a,
+	.awards-site-footer__social-link,
+	header #cssmenu > ul > li > a {
+		display: inline-flex;
+		align-items: center;
+	}
+
+	.post-card__categories a {
+		padding: 0.25rem 0.65rem;
+		margin: 0.125rem;
+	}
+
+	.btn,
+	.btn-load-more,
+	.msr-primary-cta__main {
+		justify-content: center;
+		padding-block: 0.65rem;
+	}
+
+	.awards-site-footer__links a {
+		padding-block: 0.35rem;
+	}
+
+	.awards-site-footer__social-link {
+		min-width: 2.75rem;
+		justify-content: center;
+		padding: 0.35rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.msr-awards {
+		.msr-reveal {
+			opacity: 1 !important;
+			transform: none !important;
+		}
+	}
+}

@@ -1,0 +1,214 @@
+// Phase 16 — compact shell: header density, hero meta, sponsor bar, primary CTA
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 1030;
+	background-color: $bg-dark;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+
+	.navbar {
+		padding-top: 0.65rem;
+		padding-bottom: 0.65rem;
+
+		@media (min-width: 992px) {
+			padding-top: 0.75rem;
+			padding-bottom: 0.75rem;
+		}
+	}
+
+	.awards-navbar__inner {
+		align-items: center;
+		gap: 0.5rem 1rem;
+		flex-wrap: nowrap;
+	}
+
+	.navbar-brand {
+		display: inline-flex;
+		align-items: center;
+		flex-shrink: 0;
+		margin-right: 0;
+		padding: 0;
+		max-width: none;
+		order: 1;
+
+		img {
+			display: block;
+			max-height: 2.5rem;
+			width: auto;
+			height: auto;
+		}
+	}
+
+	.navbar-toggler {
+		order: 3;
+		margin-left: auto;
+	}
+
+	.msr-awards-mobile-nav.offcanvas {
+		order: 2;
+	}
+
+	.navbar-nav {
+		height: auto;
+		align-items: center;
+	}
+
+	#cssmenu > ul {
+		align-items: center;
+		gap: 0.15rem 0.35rem;
+
+		> li > a {
+			font-family: $body-text;
+			font-size: 0.9375rem;
+			font-weight: 600;
+			letter-spacing: 0.02em;
+			padding: 0.5rem 0.75rem;
+		}
+	}
+
+	@include media('>=desktop') {
+		.msr-awards-mobile-nav.offcanvas {
+			position: static;
+			visibility: visible;
+			transform: none;
+			background: transparent;
+			border: 0;
+			flex-grow: 0;
+			flex-shrink: 1;
+			margin-left: auto;
+			width: auto;
+			max-width: none;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			order: 2;
+
+			.offcanvas-body {
+				display: flex;
+				flex-grow: 0;
+				justify-content: flex-end;
+				padding: 0;
+			}
+		}
+
+		.navbar-toggler {
+			display: none;
+		}
+
+		#cssmenu > ul {
+			justify-content: flex-end;
+		}
+	}
+
+	.msr-primary-cta {
+		flex-shrink: 0;
+
+		&__sub,
+		&__link {
+			display: none;
+		}
+
+		&__main {
+			font-size: 0.875rem;
+			padding: 0.4rem 0.85rem;
+			white-space: nowrap;
+		}
+	}
+}
+
+body.msr-awards {
+	.btn-primary {
+		background-color: $gold;
+		border-color: $gold;
+		color: $bg-dark !important;
+
+		&:hover,
+		&:focus-visible {
+			background-color: $gold-light;
+			border-color: $gold-light;
+			color: $bg-dark !important;
+		}
+	}
+
+	.btn-outline-primary {
+		color: $gold-light;
+		border-color: $gold-light;
+
+		&:hover,
+		&:focus-visible {
+			background-color: $gold;
+			border-color: $gold;
+			color: $bg-dark !important;
+		}
+	}
+
+	.msr-awards-hero .awards-ctas {
+		.btn-outline-primary {
+			color: $gold-light;
+			border-color: $gold-light;
+		}
+	}
+
+	section#advert .awards-advert-panel,
+	[id^='awards-carousel-leaderboard-'] .panel {
+		background-color: $surface-mid;
+		border-top: 2px solid $gold;
+		box-shadow: none;
+		transform: none;
+
+		&:hover {
+			box-shadow: none;
+			transform: none;
+		}
+	}
+}
+
+.awards-main-sponsor {
+	padding: 1.25rem 0;
+	background: $surface;
+	border-top: 1px solid $border-mid;
+	border-bottom: 1px solid $border-mid;
+
+	&__label {
+		margin: 0 0 0.75rem;
+		text-align: center;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: $text-secondary;
+	}
+
+	&__logos {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+		justify-content: center;
+		gap: 1rem 1.25rem;
+	}
+
+	&__logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+	}
+}
+
+body.msr-awards .entry-content p {
+	font-size: 1.125rem;
+	line-height: 1.6;
+}
+
+@include media('<=phone') {
+	.site-header .msr-primary-cta {
+		width: 100%;
+
+		&__main {
+			width: 100%;
+			text-align: center;
+		}
+	}
+}

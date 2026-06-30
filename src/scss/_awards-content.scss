@@ -1,0 +1,221 @@
+// Phase 18 — empty states, entrant journey, sponsor tiers
+
+.msr-empty-state {
+	color: $text-secondary;
+
+	&__title {
+		color: $text-primary;
+		font-family: $header-text;
+	}
+
+	&__message {
+		color: $text-secondary;
+	}
+
+	&--inline {
+		padding: 1.25rem 0;
+		text-align: center;
+	}
+}
+
+.awards-entrant-journey {
+	margin: 2rem 0 2.5rem;
+
+	&__title {
+		font-family: $display-text;
+		color: $text-primary;
+	}
+
+	&__lead {
+		color: $text-secondary;
+		max-width: 42rem;
+		margin-inline: auto;
+	}
+
+	&__steps {
+		display: grid;
+		gap: 1rem;
+
+		@include media('>=tablet') {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	&__step {
+		height: 100%;
+		padding: 1.25rem;
+	}
+
+	&__step-label {
+		color: $gold-light;
+		letter-spacing: 0.08em;
+	}
+
+	&__step-title {
+		color: $text-primary;
+		font-family: $header-text;
+	}
+
+	&__step-copy {
+		color: $text-secondary;
+	}
+}
+
+.awards-partner-tier {
+	margin-bottom: 2rem;
+
+	&__heading {
+		color: $gold-light;
+		letter-spacing: 0.06em;
+		margin-bottom: 1rem;
+	}
+}
+
+.post-card {
+	&__title {
+		color: $text-primary;
+		font-family: $header-text;
+	}
+
+	&__excerpt {
+		color: $text-secondary;
+	}
+}
+
+.partner-card__tier-badge {
+	padding: 0.2rem 0.55rem;
+	border: 1px solid $border-mid;
+	border-radius: 999px;
+	color: $text-secondary;
+	font-size: 0.75rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+// Equal-height listing cards (topics, nominees, partners)
+.msr-card-grid {
+	align-items: stretch;
+
+	> [class*='col-'] {
+		display: flex;
+	}
+
+	.post-card,
+	.nominee-card,
+	.partner-card {
+		width: 100%;
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.post-card__body,
+	.nominee-card__body {
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+
+		.btn {
+			margin-top: auto;
+			align-self: flex-start;
+		}
+	}
+}
+
+// Archive listing layout — filters before long supplementary copy / search
+.awards-archive-listing {
+	.awards-archive-intro {
+		margin-bottom: 0.75rem;
+
+		h1 {
+			margin-bottom: 0.5rem;
+		}
+
+		.lead {
+			margin-bottom: 0;
+		}
+
+		&__content {
+			margin-top: 1rem;
+			color: $text-secondary;
+		}
+	}
+
+	.awards-archive-supplement {
+		margin-top: 1.5rem;
+	}
+
+	.msr-site-search {
+		padding: 1.5rem 0 !important;
+		margin-top: 0.5rem;
+	}
+
+	.msr-filter-tabs {
+		margin-top: 0.25rem;
+	}
+}
+
+.msr-rich-text {
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.awards-section-intro {
+	color: $text-secondary;
+}
+
+.awards-advert__label {
+	margin: 0;
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	color: $text-muted;
+}
+
+[id^='awards-carousel-'] a {
+	display: block;
+	line-height: 0;
+
+	img {
+		display: block;
+		width: 100%;
+		height: auto;
+		min-height: 3rem;
+		object-fit: contain;
+	}
+}
+
+// Advert / leaderboard — static dark panels (no card hover lift)
+body.msr-awards {
+	section#advert,
+	[id^='awards-carousel-leaderboard-'] {
+		.panel {
+			background-color: $surface-mid;
+			border-top: 2px solid $gold;
+			box-shadow: none;
+			transform: none;
+			transition: none;
+
+			&:hover {
+				box-shadow: none;
+				transform: none;
+			}
+		}
+
+		.panel .panel {
+			background: transparent;
+			border: 0;
+			box-shadow: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.awards-advert__label,
+		.advert p {
+			text-decoration: none;
+			cursor: default;
+		}
+	}
+}

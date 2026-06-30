@@ -36,7 +36,7 @@ if( $categories ){
 ?>
                  </p>  
 				 <?php
-if(in_category(10)){
+if ( msrawards_is_sponsored_post() ) {
 ?>
 <h3> <i>This is Sponsored content</i></h3>
 <?php } ?> 
@@ -64,7 +64,7 @@ if(in_category(10)){
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'msrsandbox' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'msrawards' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -77,7 +77,7 @@ if(in_category(10)){
 
 		wp_link_pages(
 			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'msrsandbox' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'msrawards' ),
 				'after'  => '</div>',
 			)
 		);

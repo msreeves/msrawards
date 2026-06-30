@@ -8,84 +8,46 @@
  */
 get_header();
 ?>
-  <section>
-  <div class="container">
-        <?php the_title( '<h1>', '</h1>' ); ?>
-          <?php the_content(); ?>
-             <?php get_template_part( 'inc/controllers/searchbar' ); ?>
-<div class="post-tabs">
-  <!-- Nav tabs -->
-  <ul class="nav nav-tabs">
-  <li class="active">
-      <a href="#all" data-bs-toggle="tab" role="tab" aria-controls="all" aria-selected="all"><button><?php echo $post_category->name ?>All</button></a>
-    </li>
-     <?php $post_categories = get_categories('parent=0'); ?> 
-	<?php foreach($post_categories as $post_category)  : ?>
-      <li>
-        <a href="#<?php echo $post_category->slug ?>" data-bs-toggle="tab"><button><?php echo $post_category->name ?></button></a>
-      </li>
-  <?php endforeach ?>
-  </ul>
-
-  <!-- Tab panes -->
-  <div class="tab-content">
-
-    <div class="tab-pane fade show active" id="all">
-      <?php 	
-      $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => -1,
-        'orderby' => 'publish_date',
-        'order' => 'ASC'
-
-      );
-      $all_posts = new WP_Query( $args );		
-      ?>
-
-      <?php if ( $all_posts->have_posts() ) : ?>
-            <div class="row">
-          <?php while ( $all_posts->have_posts() ) : $all_posts->the_post(); ?>	
-              <?php get_template_part( 'templates/partials/post-listing/posts/maincategory' ); ?>
-          <?php endwhile; ?>
-          <?php wp_reset_query() ?>
-      </div>
-      <?php endif; ?>
-
-    </div>
-
-    <?php foreach($post_categories as $post_category)  : ?>
-
-      <div class="tab-pane fade" id="<?php echo $post_category->slug ?>">
-        <?php 	
-        $args = array(
-          'post_type' => 'post',
-          'posts_per_page'  => -1,
-          'tax_query' => array(
-            array(
-              'taxonomy' => 'category',
-              'field' => 'slug',
-              'terms' => $post_category->slug
-            )
-          )
-        );
-        $posts = new WP_Query( $args );		
-        ?>
-
-        <?php if ( $posts->have_posts() ) : ?>
-              <div class="row">
-          <?php while ( $posts->have_posts() ) : $posts->the_post(); ?>	
-         <?php get_template_part( 'templates/partials/post-listing/posts/subcategory' ); ?>
-          <?php endwhile; ?>
-          <?php wp_reset_query() ?>
-      </div>
-        <?php endif; ?>
-
-      </div>
-      <?php endforeach ?>
-
-  </div>
-        </div>
-        </div>
+<main id="site-content" class="site-main">
+<section class="awards-archive-listing">
+	<div class="container">
+		<header class="awards-archive-intro">
+			<?php the_title( '<h1>', '</h1>' ); ?>
+			<?php if ( get_the_content() ) : ?>
+				<div class="awards-archive-intro__content">
+					<?php the_content(); ?>
+				</div>
+			<?php endif; ?>
+		</header>
+		<?php
+		get_template_part(
+			'templates/partials/filter-tabs',
+			'',
+			array(
+				'taxonomy'      => 'category',
+				'post_type'     => 'post',
+				'all_label'     => __( 'All', 'msrawards' ),
+				'listing_all'       => 'template-parts/cards/post-card',
+				'listing_all_args'  => array( 'category_depth' => 'all' ),
+				'listing_term'      => 'template-parts/cards/post-card',
+				'listing_term_args' => array( 'category_depth' => 'child-only' ),
+				'parent'        => 0,
+				'query_args'    => array(
+					'orderby' => 'date',
+					'order'   => 'ASC',
+				),
+				'empty_message' => __( 'No posts found in this category.', 'msrawards' ),
+			)
+		);
+		?>
+		<?php get_template_part( 'template-parts/forms/site-search' ); ?>
+		<?php
+		if ( function_exists( 'msrawards_render_ecosystem_band' ) ) {
+			msrawards_render_ecosystem_band();
+		}
+		?>
+	</div>
 </section>
+</main>
 <?php
 get_footer();

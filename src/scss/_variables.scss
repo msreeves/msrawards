@@ -1,11 +1,82 @@
-$primary: #702963;
-$purple: #C3B1E1;
-$black: #000;
-$white: #fff;
-$grey: #f2f2f2;
-$yellow: #FFFF00;
+// ============================================================
+// MSR Awards — Design tokens
+// Dark prestige theme: near-black surfaces, champagne gold accent
+// ============================================================
 
-$header-text: 'Notable', serif;
-$body-text: 'DM Sans', sans-serif;
+// --- Brand accent ---
+$gold:          #c9a84c;   // champagne gold — primary accent
+$gold-light:    #e8c97b;   // hover / highlight state
+$gold-dark:     #a07830;   // active / pressed state
 
-@import 'node_modules/include-media/dist/_include-media';
+// --- Surfaces ---
+$bg-dark:       #0f0f0f;   // page body background
+$surface:       #1a1a1a;   // cards, panels
+$surface-mid:   #252525;   // elevated panels, dropdowns
+$surface-high:  #303030;   // top-most surface (tooltips, modals)
+
+// --- Text ---
+$text-primary:  #f5f0ea;   // warm white — headings, body copy
+$text-secondary: #a09888;  // subheadings, meta
+$text-muted:    #6e6460;   // placeholders, disabled
+
+// --- Borders ---
+$border-subtle: #1e1e1e;
+$border-mid:    #2e2e2e;
+$border-strong: #3e3e3e;
+
+// --- Legacy aliases (referenced throughout theme SCSS, mapped to new palette) ---
+$primary:  $gold;          // accent — nav underlines, tags, CTAs, buttons
+$white:    #ffffff;        // pure white (Bootstrap internal use)
+$black:    #000000;        // pure black (Bootstrap internal use)
+$grey:     $surface-mid;   // previously light grey; now dark surface mid
+$purple:   $surface;       // previously lavender body bg; now dark surface
+
+// --- Typography ---
+$display-text: 'Playfair Display', 'Notable', serif;  // hero / h1 display
+$header-text:  'Notable', serif;                       // section headings, nav
+$body-text:    'DM Sans', sans-serif;
+
+// --- Bootstrap 5 overrides (must come before @import bootstrap) ---
+$body-bg:           $bg-dark;
+$body-color:        $text-primary;
+$link-color:        $gold;
+$link-hover-color:  $gold-light;
+
+$font-family-base:  $body-text;
+
+$border-color:      $border-mid;
+$card-bg:           $surface;
+$card-border-color: $border-mid;
+
+$input-bg:              $surface;
+$input-color:           $text-primary;
+$input-border-color:    $border-strong;
+$input-focus-border-color: $gold;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($gold, 0.2);
+$input-placeholder-color: $text-muted;
+
+$nav-link-color:        $text-primary;
+$nav-link-hover-color:  $gold-light;
+
+$pagination-bg:         $surface;
+$pagination-color:      $text-primary;
+$pagination-border-color: $border-mid;
+$pagination-hover-bg:   $surface-mid;
+$pagination-hover-color: $gold;
+$pagination-active-bg:  $gold;
+$pagination-active-color: $bg-dark;
+
+// --- Layout tokens ---
+:root {
+    --msr-content-max: 72rem;
+    --msr-section-y: clamp(2.5rem, 5vw, 5rem);
+    --msr-radius: 2px;
+
+    --msr-gold: #{$gold};
+    --msr-gold-light: #{$gold-light};
+    --msr-surface: #{$surface};
+    --msr-bg: #{$bg-dark};
+    --msr-text: #{$text-primary};
+}
+
+@import 'include-media/dist/_include-media';

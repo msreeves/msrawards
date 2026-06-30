@@ -1,0 +1,13 @@
+// Self-hosted programme fonts (Phase 19 — no fonts.googleapis.com).
+@import '@fontsource/dm-sans/latin-400.css';
+@import '@fontsource/dm-sans/latin-600.css';
+@import '@fontsource/playfair-display/latin-600.css';
+@import '@fontsource/playfair-display/latin-700.css';
+
+@font-face {
+	font-family: 'Notable';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('../assets/fonts/notable-latin.ttf') format('truetype');
+}

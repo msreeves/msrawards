@@ -11,7 +11,29 @@ Requires PHP: 7.4
 Terminal Command - 'npm run watch'
 */
 
+// Custom variable overrides (defined before Bootstrap so !default vars are replaced)
 @import 'variables';
+@import 'fonts';
+@import 'fontawesome';
+
+// Bootstrap 5.3 — trimmed SASS bundle (Phase 19 CSS budget)
+@import 'bootstrap-core';
+
+// Theme-specific layers on top of Bootstrap
+@import 'event-context';
+@import 'awards-layout';
+@import 'awards-shell';
+@import 'awards-hero';
+@import 'awards-content';
+@import 'awards-logos';
+@import 'awards-filter-bar';
+@import 'awards-media';
+@import 'awards-a11y';
+@import 'awards-responsive';
+@import 'awards-ecosystem';
+@import 'awards-programme';
+@import 'awards-footer';
+@import 'awards-portfolio';
 @import 'header';
 @import 'content';
 @import 'footer';

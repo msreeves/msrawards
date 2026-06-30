@@ -1,0 +1,95 @@
+// Partner / sponsor logo wells — dark surface; gold monochrome for contrast on dark bg
+$awards-logo-gold-filter: brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(650%) hue-rotate(5deg)
+	brightness(95%);
+
+.site-header .navbar-brand img.custom-logo,
+.awards-logo-tile img,
+.awards-main-sponsor__logo img,
+.partner-listing-image img {
+	filter: $awards-logo-gold-filter;
+}
+
+.awards-logo-tile {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 6.5rem;
+	padding: 1rem 1.25rem;
+	background: $surface-mid;
+	border: 1px solid $border-mid;
+	border-radius: 4px;
+	overflow: hidden;
+	box-sizing: border-box;
+
+	img,
+	.msr-card-media__img {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 4rem;
+		object-fit: contain;
+		margin: 0 auto;
+	}
+
+	.msr-card-media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 100%;
+		max-height: 4rem;
+		overflow: hidden;
+		background: transparent;
+	}
+}
+
+.awards-logo-tile--compact {
+	min-height: 5rem;
+	min-width: 6.5rem;
+	max-width: 8.5rem;
+	padding: 0.65rem 0.85rem;
+
+	img,
+	.msr-card-media__img {
+		max-height: 3.25rem;
+	}
+
+	.msr-card-media {
+		max-height: 3.25rem;
+	}
+}
+
+.site-header .navbar-brand {
+	overflow: hidden;
+	max-width: 11rem;
+
+	img.custom-logo {
+		display: block;
+		max-width: 100%;
+		max-height: 2.5rem;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+	}
+}
+
+.awards-main-sponsor__logo {
+	min-height: 5.5rem;
+	max-width: 12rem;
+	text-decoration: none;
+}
+
+.awards-partner-chip {
+	flex: 0 0 auto;
+	max-width: 8.5rem;
+
+	.partner-card {
+		background: transparent;
+		border: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+		padding: 0;
+	}
+}

@@ -31,79 +31,82 @@ if ( ! is_array( $time ) ) {
 ?>
 
 <main id="site-content">
-<?php if (is_page( 89 )) : ?>
-  <?php if( get_field('hero' ,'option') ) : ?>
-  <div class="background-image" style="background-image: url('<?php echo the_field('image', 'option'); ?>');">
-  <div class="mask p-5" style="background-color: rgba(0, 0, 0, 0.2);">
-    <div class="d-flex justify-content-center align-items-center h-100">
-      <div class="text-white text-center">
-        <h1><?php the_field('name', 'option'); ?></h1>
-        <h2><?php echo $venue['name']; ?></h2>
-         <i class="fa fa-map-marker fa-2xl" aria-hidden="true"></i>
-          <h3><?php echo $venue['address']; ?> </h3> 
-         <h3><?php if($date['start']) : ?>  <i class="fa-solid fa-calendar"></i> <?php endif; ?> <?php echo $date['start']; ?> <?php if($date['finish']) : ?> - <?php echo $date['finish']; ?><?php endif; ?> </h3> 
-          <h3><?php if($time['start']) : ?>  <i class="fa-solid fa-clock"></i> <?php endif; ?> <?php echo $time['start']; ?> <?php if($time['finish']) : ?> - <?php echo $time['finish']; ?><?php endif; ?> </h3> 
-         <div class="ctas">
-                                <?php 
-$link = get_field('link1', 'option');
-if( $link ): 
-    $link_url = $link['url'];
-    $link_title = $link['title'];
-    $link_target = $link['target'] ? $link['target'] : '_self';
-    ?>
-    <a class="m-1" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><button><?php echo esc_html( $link_title ); ?></button></a>
-      <?php endif; ?>
-                   <?php 
-$link = get_field('link2', 'option');
-if( $link ): 
-    $link_url = $link['url'];
-    $link_title = $link['title'];
-    $link_target = $link['target'] ? $link['target'] : '_self';
-    ?>
-    <a class="m-1" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><button class="secondary"><?php echo esc_html( $link_title ); ?></button></a>
-      <?php endif; ?>
-      </div>
-          </div>  
-    </div>
-</div>
-</div>
-  <?php if( $sponsors ) : ?>
-              <div class="row g-0">                            
-				   <div class="col-xl-6 col-lg-6">
-               		<div class="panel">
-				<div class="my-auto">
-				<h2 class="text-center">Main Sponsor</h2>
-		  </div>
-		  </div>
-                </div>
-                    <div class="col-xl-6 col-lg-6"> 
-                                        		<div class="panel">
-                                               <div class="sponsor">
-                                               <?php foreach( $sponsors as $sponsor ): ?>
-                                                <?php
-												$sponsor_link = get_field( 'link', $sponsor );
-												$sponsor_url  = '';
-												if ( is_array( $sponsor_link ) && ! empty( $sponsor_link['url'] ) ) {
-													$sponsor_url = (string) $sponsor_link['url'];
-												} elseif ( is_string( $sponsor_link ) ) {
-													$sponsor_url = $sponsor_link;
-												}
-												?>
-                                                <a href="<?php echo esc_url( $sponsor_url ); ?>" target="_blank">
-                                               <?php $image = wp_get_attachment_image_src(
-                                                   get_post_thumbnail_id(
-                                                       $sponsor
-                                                   ),
-                                               ); ?>
-                                                <img src="<?php echo isset( $image[0] ) ? esc_url( $image[0] ) : ''; ?>" alt=""> 
-                                              </a>
-                                                <?php endforeach; ?>
-                                              </div>
-                            </div>
-                            </div>
-                       <?php endif; ?>
+<?php if ( msrawards_is_programme_home() ) : ?>
+  <?php
+	$hero_bg = msrawards_hero_background_url( get_field( 'image', 'option' ) );
+	$hero_on = (bool) get_field( 'hero', 'option' );
+	?>
+  <?php if ( $hero_on ) : ?>
+  <section class="background-image msr-awards-hero<?php echo $hero_bg ? '' : ' msr-awards-hero--no-image'; ?>"<?php echo $hero_bg ? ' style="background-image: url(' . esc_url( $hero_bg ) . ');"' : ''; ?>>
+	<div class="msr-awards-hero__scrim" aria-hidden="true"></div>
+	<div class="msr-awards-hero__inner">
+		<div class="msr-awards-hero__content msr-reveal">
+			<p class="msr-awards-hero__eyebrow"><?php esc_html_e( 'Awards programme', 'msrawards' ); ?></p>
+			<?php if ( function_exists( 'msrawards_get_programme_format_label' ) ) : ?>
+			<p class="msr-awards-hero__format-badge"><?php echo esc_html( msrawards_get_programme_format_label() ); ?></p>
+			<?php endif; ?>
+			<h1><?php echo esc_html( (string) get_field( 'name', 'option' ) ); ?></h1>
+			<?php
+			$venue_name  = isset( $venue['name'] ) ? (string) $venue['name'] : '';
+			$venue_addr  = isset( $venue['address'] ) ? (string) $venue['address'] : '';
+			$date_start  = isset( $date['start'] ) ? (string) $date['start'] : '';
+			$date_finish = isset( $date['finish'] ) ? (string) $date['finish'] : '';
+			$time_start  = isset( $time['start'] ) ? (string) $time['start'] : '';
+			$time_finish = isset( $time['finish'] ) ? (string) $time['finish'] : '';
+			$has_facts   = $venue_addr || $date_start || $date_finish || $time_start || $time_finish;
+			?>
+			<?php if ( $venue_name ) : ?>
+			<p class="msr-awards-hero__lead"><?php echo esc_html( $venue_name ); ?></p>
+			<?php endif; ?>
+			<?php if ( $has_facts ) : ?>
+			<ul class="msr-awards-hero__facts">
+				<?php if ( $date_start || $date_finish ) : ?>
+				<li class="msr-awards-hero__fact">
+					<?php if ( $date_start ) : ?><i class="fa-solid fa-calendar" aria-hidden="true"></i><?php endif; ?>
+					<span><?php echo esc_html( trim( $date_start . ( $date_finish ? ' - ' . $date_finish : '' ) ) ); ?></span>
+				</li>
+				<?php endif; ?>
+				<?php if ( $time_start || $time_finish ) : ?>
+				<li class="msr-awards-hero__fact">
+					<?php if ( $time_start ) : ?><i class="fa-solid fa-clock" aria-hidden="true"></i><?php endif; ?>
+					<span><?php echo esc_html( trim( $time_start . ( $time_finish ? ' - ' . $time_finish : '' ) ) ); ?></span>
+				</li>
+				<?php endif; ?>
+				<?php if ( $venue_addr ) : ?>
+				<li class="msr-awards-hero__fact msr-awards-hero__fact--address">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+					<span class="msr-awards-hero__fact-text"><?php msrawards_render_rich_text( $venue_addr ); ?></span>
+				</li>
+				<?php endif; ?>
+			</ul>
+			<?php endif; ?>
+			<div class="awards-ctas ctas">
+				<?php msrawards_render_cta_link( get_field( 'link1', 'option' ) ); ?>
+				<?php msrawards_render_cta_link( get_field( 'link2', 'option' ), 'btn btn-outline-primary' ); ?>
+				<p class="msr-awards-hero__cta-note"><?php esc_html_e( 'Preview — entries open at launch', 'msrawards' ); ?></p>
+			</div>
+		</div>
+	</div>
+  </section>
+  <?php if ( $sponsors ) : ?>
+	<?php
+	get_template_part(
+		'template-parts/components/main-sponsor-bar',
+		null,
+		array( 'sponsors' => $sponsors )
+	);
+	?>
+  <?php endif; ?>
 <?php else : ?>
   <?php endif; ?>
+  <?php
+	if ( function_exists( 'msrawards_render_programme_stats' ) ) {
+		msrawards_render_programme_stats();
+	}
+	if ( function_exists( 'msrawards_render_featured_nominees' ) ) {
+		msrawards_render_featured_nominees();
+	}
+	?>
     <?php
       $sections = get_field( 'add_sections' );
       $has_structured_sections = is_array( $sections ) && isset( $sections[0] ) && is_array( $sections[0] ) && ! empty( $sections[0]['acf_fc_layout'] );
@@ -114,7 +117,7 @@ if( $link ):
                 continue;
             }
             $template = str_replace( '_', '-', $section['acf_fc_layout'] );
-            get_template_part( 'inc/components/' . $template, '', $section );
+            get_template_part( 'template-parts/sections/' . $template, '', $section );
         endforeach;
       elseif ( is_array( $sections ) ) :
         foreach ( $sections as $index => $layout_name ) :
@@ -152,6 +155,7 @@ if( $link ):
                 for ( $r = 0; $r < $rows; $r++ ) {
                     $keypoint[] = array(
                         'icon'           => get_field( $prefix . 'keypoint_' . $r . '_icon' ),
+                        'icon_class'     => get_field( $prefix . 'keypoint_' . $r . '_icon_class' ),
                         'number'         => get_field( $prefix . 'keypoint_' . $r . '_number' ),
                         'title'          => get_field( $prefix . 'keypoint_' . $r . '_title' ),
                         'introduction'   => get_field( $prefix . 'keypoint_' . $r . '_introduction' ),
@@ -165,9 +169,17 @@ if( $link ):
             }
 
             $template = str_replace( '_', '-', $layout_name );
-            get_template_part( 'inc/components/' . $template, '', $section );
+            get_template_part( 'template-parts/sections/' . $template, '', $section );
         endforeach;
       endif;
+?>
+<?php
+	if ( function_exists( 'msrawards_render_season_timeline' ) ) {
+		msrawards_render_season_timeline();
+	}
+	if ( function_exists( 'msrawards_render_ecosystem_band' ) ) {
+		msrawards_render_ecosystem_band();
+	}
 ?>
 <?php else : ?>
   <section>
