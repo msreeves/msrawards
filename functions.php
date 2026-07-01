@@ -11,18 +11,18 @@
 
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/media.php';
-require_once get_template_directory() . '/inc/msr-awards-filter-bar.php';
-require_once get_template_directory() . '/inc/msr-awards-ecosystem.php';
-require_once get_template_directory() . '/inc/msr-awards-programme.php';
-require_once get_template_directory() . '/inc/msr-awards-content.php';
-require_once get_template_directory() . '/inc/msr-awards-admin.php';
-require_once get_template_directory() . '/inc/msr-awards-acf.php';
-require_once get_template_directory() . '/inc/msr-awards-options.php';
-require_once get_template_directory() . '/inc/msr-awards-people.php';
-require_once get_template_directory() . '/inc/msr-awards-search.php';
-require_once get_template_directory() . '/inc/msr-awards-footer.php';
-require_once get_template_directory() . '/inc/msr-awards-seo.php';
-require_once get_template_directory() . '/inc/msr-awards-portfolio.php';
+require_once get_template_directory() . '/inc/filter-bar.php';
+require_once get_template_directory() . '/inc/ecosystem.php';
+require_once get_template_directory() . '/inc/programme.php';
+require_once get_template_directory() . '/inc/content.php';
+require_once get_template_directory() . '/inc/admin.php';
+require_once get_template_directory() . '/inc/acf.php';
+require_once get_template_directory() . '/inc/options.php';
+require_once get_template_directory() . '/inc/people.php';
+require_once get_template_directory() . '/inc/search.php';
+require_once get_template_directory() . '/inc/footer.php';
+require_once get_template_directory() . '/inc/seo.php';
+require_once get_template_directory() . '/inc/portfolio.php';
 
 require_once('inc/controllers/cpt.php');
 require_once('inc/controllers/cpt-admin.php');

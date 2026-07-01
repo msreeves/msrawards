@@ -2,7 +2,7 @@
  * Close mobile offcanvas after in-panel navigation.
  */
 document.addEventListener('DOMContentLoaded', function () {
-	var panel = document.getElementById('msrAwardsMobileNav');
+	var panel = document.getElementById('site-header-mobile-nav');
 	if (!panel || typeof bootstrap === 'undefined') {
 		return;
 	}

@@ -12,11 +12,11 @@ $topics   = home_url( '/topics/' );
 $nominees = home_url( '/nominees/' );
 $search   = home_url( '/?s=' );
 ?>
-<main id="site-content" class="awards-error-page">
+<main id="site-content" class="msr-error-page">
 	<div class="container py-5 text-center">
-		<p class="awards-error-page__code display-1 mb-2" aria-hidden="true">404</p>
+		<p class="msr-error-page__code display-1 mb-2" aria-hidden="true">404</p>
 		<h1 class="h2 mb-3"><?php esc_html_e( 'Page not found', 'msrawards' ); ?></h1>
-		<p class="text-muted mb-4 awards-error-page__lead">
+		<p class="text-muted mb-4 msr-error-page__lead">
 			<?php esc_html_e( 'That URL is not part of the MSR Awards programme site, or it may have moved.', 'msrawards' ); ?>
 		</p>
 		<nav class="d-flex flex-wrap gap-2 justify-content-center" aria-label="<?php esc_attr_e( 'Helpful links', 'msrawards' ); ?>">

@@ -45,7 +45,7 @@
 		margin-left: auto;
 	}
 
-	.msr-awards-mobile-nav.offcanvas {
+	.site-header__mobile-nav.offcanvas {
 		order: 2;
 	}
 
@@ -68,7 +68,7 @@
 	}
 
 	@include media('>=desktop') {
-		.msr-awards-mobile-nav.offcanvas {
+		.site-header__mobile-nav.offcanvas {
 			position: static;
 			visibility: visible;
 			transform: none;

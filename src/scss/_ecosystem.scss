@@ -1,5 +1,5 @@
 // Outbound MSR ecosystem band (hub, publishing, ceremony)
-.awards-ecosystem {
+.msr-ecosystem {
 	background: linear-gradient(180deg, $surface-high 0%, $surface 100%);
 	border-top: 1px solid $border-mid;
 	border-bottom: 1px solid $border-mid;
@@ -53,13 +53,13 @@
 	}
 }
 
-body.msr-awards section.awards-ecosystem {
+body.msr-awards section.msr-ecosystem {
 	padding-top: 2.5rem;
 	padding-bottom: 2.5rem;
 }
 
 @include media('<=phone') {
-	.awards-ecosystem {
+	.msr-ecosystem {
 		padding: 2rem 0;
 
 		&__card .btn {

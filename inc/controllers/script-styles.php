@@ -34,7 +34,10 @@ function theme_scripts() {
 		get_template_directory_uri() . '/dist/app.js',
 		array(),
 		$app_js_ver,
-		true
+		array(
+			'in_footer' => true,
+			'strategy'  => 'defer',
+		)
 	);
 
 	wp_localize_script(
@@ -47,3 +50,20 @@ function theme_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts' );
+
+/**
+ * Vite bundles are ES modules (dynamic import + import.meta).
+ *
+ * @param string $tag    Script tag HTML.
+ * @param string $handle Script handle.
+ * @param string $src    Script URL.
+ * @return string
+ */
+function msrawards_script_loader_tag( $tag, $handle, $src ) {
+	unset( $src );
+	if ( 'appjs' === $handle && false === strpos( $tag, 'type=' ) ) {
+		return str_replace( '<script ', '<script type="module" ', $tag );
+	}
+	return $tag;
+}
+add_filter( 'script_loader_tag', 'msrawards_script_loader_tag', 10, 3 );

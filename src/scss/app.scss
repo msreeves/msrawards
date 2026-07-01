@@ -1,7 +1,7 @@
 /*
 Theme Name: msrawards
 Theme URI: https: //www.msreeves.co.uk/events/msrawards
-Description: This is my MSR awards theme created from scratch files in Wordpress, it is a Wordpress events website to is focused on a event heavy awards website (Create Custom Posts, posts split by categories etc, hosting nominees and awards). It is built with Node.js modules and compiled with sass to complie css with webpack and laravel-mix.
+Description: MSR Awards programme theme — nominees, categories, and awards content. Assets built with Vite 5 + SCSS (npm run production).
 Author: Michael Reeves
 Author URI: https://www.msreeves.co.uk
 Version: 1.0.0
@@ -21,19 +21,19 @@ Terminal Command - 'npm run watch'
 
 // Theme-specific layers on top of Bootstrap
 @import 'event-context';
-@import 'awards-layout';
-@import 'awards-shell';
-@import 'awards-hero';
-@import 'awards-content';
-@import 'awards-logos';
-@import 'awards-filter-bar';
-@import 'awards-media';
-@import 'awards-a11y';
-@import 'awards-responsive';
-@import 'awards-ecosystem';
-@import 'awards-programme';
-@import 'awards-footer';
-@import 'awards-portfolio';
+@import 'layout';
+@import 'shell';
+@import 'hero';
+@import 'listing';
+@import 'logos';
+@import 'filter-bar';
+@import 'card-media';
+@import 'a11y';
+@import 'responsive';
+@import 'ecosystem';
+@import 'programme';
+@import 'site-footer';
+@import 'home-bands';
 @import 'header';
 @import 'content';
 @import 'footer';

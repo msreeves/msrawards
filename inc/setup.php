@@ -6,7 +6,7 @@
  */
 
 /**
- * Programme body class for scoped SCSS (see _awards-layout.scss, _awards-filter-bar.scss).
+ * Programme body class for scoped SCSS (see _layout.scss, _filter-bar.scss).
  *
  * @param string[] $classes Body classes.
  * @return string[]
