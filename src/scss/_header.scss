@@ -160,11 +160,32 @@ header {
                     }
 
                     >li.has-sub {
-                        &:hover {
-                            >a {
-                                &:before {
-                                    top: 19px;
-                                }
+                        >a {
+                            // CSS chevron (not FA / not border-triangle) — fixed square box, flex-safe.
+                            padding-right: 1.85rem;
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                right: 0.65rem;
+                                top: 50%;
+                                width: 0.4rem;
+                                height: 0.4rem;
+                                margin-top: -0.12rem;
+                                border-right: 2px solid currentColor;
+                                border-bottom: 2px solid currentColor;
+                                transform: translateY(-50%) rotate(45deg);
+                                transform-origin: center;
+                                opacity: 0.8;
+                                pointer-events: none;
+                                box-sizing: border-box;
+                            }
+                        }
+
+                        &:hover,
+                        &:focus-within {
+                            >a::before {
+                                transform: translateY(-50%) rotate(225deg);
                             }
                         }
 

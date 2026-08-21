@@ -60,7 +60,7 @@ function msrawards_get_programme_stats() {
  * Featured nominees for home.
  *
  * @param int $limit Max cards.
- * @return array<int, array{title: string, meta: string, url: string}>
+ * @return array<int, array{title: string, meta: string, url: string, summary: string}>
  */
 function msrawards_get_featured_nominees( $limit = 3 ) {
 	$query = new WP_Query(
@@ -85,10 +85,20 @@ function msrawards_get_featured_nominees( $limit = 3 ) {
 			if ( is_array( $terms ) && ! empty( $terms ) && ! is_wp_error( $terms ) ) {
 				$meta = $terms[0]->name;
 			}
+			$raw = has_excerpt() ? get_the_excerpt() : wp_strip_all_tags( (string) get_the_content( null, false ) );
+			if ( '' === trim( (string) $raw ) && function_exists( 'get_field' ) ) {
+				$profile = trim( (string) get_field( 'profile', get_the_ID() ) );
+				$job     = trim( (string) get_field( 'job_title', get_the_ID() ) );
+				$company = trim( (string) get_field( 'company', get_the_ID() ) );
+				$bits    = array_filter( array( $job, $company ) );
+				$lead    = $bits ? implode( ' · ', $bits ) . '. ' : '';
+				$raw     = trim( $lead . $profile );
+			}
 			$items[] = array(
-				'title' => get_the_title(),
-				'meta'  => $meta,
-				'url'   => get_permalink(),
+				'title'   => get_the_title(),
+				'meta'    => $meta,
+				'url'     => get_permalink(),
+				'summary' => $raw ? wp_trim_words( $raw, 28, '…' ) : '',
 			);
 		}
 		wp_reset_postdata();
@@ -180,31 +190,40 @@ function msrawards_render_featured_nominees() {
 	?>
 	<section class="awards-featured-nominees msr-reveal" aria-labelledby="awards-featured-nominees-heading">
 		<div class="container">
-			<header class="awards-featured-nominees__header text-center mb-4">
+			<header class="awards-featured-nominees__header text-center">
 				<h2 id="awards-featured-nominees-heading" class="h4 awards-featured-nominees__title mb-2">
 					<?php esc_html_e( 'Featured nominees', 'msrawards' ); ?>
 				</h2>
 				<p class="awards-featured-nominees__lead mb-0">
 					<?php esc_html_e( 'A sample of shortlisted profiles from the seeded programme — swap for live shortlists before ceremony night.', 'msrawards' ); ?>
 				</p>
+				<?php if ( $archive_url ) : ?>
+				<div class="awards-featured-nominees__cta awards-ctas">
+					<a class="btn btn-outline-primary awards-featured-nominees__nominees-btn" href="<?php echo esc_url( $archive_url ); ?>"><?php esc_html_e( 'Browse all nominees', 'msrawards' ); ?></a>
+				</div>
+				<?php endif; ?>
 			</header>
 			<ul class="awards-featured-nominees__grid list-unstyled mb-0">
 				<?php foreach ( $nominees as $nominee ) : ?>
 				<li class="awards-featured-nominees__item panel">
-					<a class="awards-featured-nominees__card-link" href="<?php echo esc_url( $nominee['url'] ); ?>">
-						<h3 class="h6 awards-featured-nominees__nominee-title mb-1"><?php echo esc_html( $nominee['title'] ); ?></h3>
+					<article class="awards-featured-nominees__card">
+						<a class="awards-featured-nominees__card-link" href="<?php echo esc_url( $nominee['url'] ); ?>">
+							<h3 class="h6 awards-featured-nominees__nominee-title mb-0"><?php echo esc_html( $nominee['title'] ); ?></h3>
+						</a>
 						<?php if ( ! empty( $nominee['meta'] ) ) : ?>
-						<p class="small awards-featured-nominees__meta mb-0"><?php echo esc_html( $nominee['meta'] ); ?></p>
+						<ul class="awards-featured-nominees__chips list-unstyled mb-0" role="list">
+							<li>
+								<span class="awards-featured-nominees__chip"><?php echo esc_html( $nominee['meta'] ); ?></span>
+							</li>
+						</ul>
 						<?php endif; ?>
-					</a>
+						<?php if ( ! empty( $nominee['summary'] ) ) : ?>
+						<p class="awards-featured-nominees__summary mb-0"><?php echo esc_html( $nominee['summary'] ); ?></p>
+						<?php endif; ?>
+					</article>
 				</li>
 				<?php endforeach; ?>
 			</ul>
-			<?php if ( $archive_url ) : ?>
-			<div class="awards-featured-nominees__cta awards-ctas">
-				<a class="btn btn-outline-primary awards-featured-nominees__nominees-btn" href="<?php echo esc_url( $archive_url ); ?>"><?php esc_html_e( 'Browse all nominees', 'msrawards' ); ?></a>
-			</div>
-			<?php endif; ?>
 		</div>
 	</section>
 	<?php
