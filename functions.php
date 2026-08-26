@@ -14,6 +14,7 @@ require_once get_template_directory() . '/inc/media.php';
 require_once get_template_directory() . '/inc/filter-bar.php';
 require_once get_template_directory() . '/inc/ecosystem.php';
 require_once get_template_directory() . '/inc/programme.php';
+require_once get_template_directory() . '/inc/companion.php';
 require_once get_template_directory() . '/inc/content.php';
 require_once get_template_directory() . '/inc/admin.php';
 require_once get_template_directory() . '/inc/acf.php';

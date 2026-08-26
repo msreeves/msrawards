@@ -106,6 +106,9 @@ if ( ! is_array( $time ) ) {
 	if ( function_exists( 'msrawards_render_featured_nominees' ) ) {
 		msrawards_render_featured_nominees();
 	}
+	if ( function_exists( 'msrawards_render_companion_home_band' ) ) {
+		msrawards_render_companion_home_band();
+	}
 	?>
     <?php
       $sections = get_field( 'add_sections' );

@@ -1,0 +1,42 @@
+// Event Companion demo promo (C1c)
+
+.awards-companion-band {
+	padding: 2rem 0;
+	background: linear-gradient(120deg, rgba($gold, 0.12) 0%, $surface 55%);
+	border-block: 1px solid rgba($gold, 0.28);
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.25rem;
+		padding: 1.25rem 1.5rem;
+		background: rgba($surface-mid, 0.9);
+		border: 1px solid rgba($gold, 0.25);
+		border-radius: 2px;
+	}
+
+	&__eyebrow {
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: $gold;
+	}
+
+	&__title {
+		font-family: $display-text;
+		color: $text-primary;
+	}
+
+	&__lead {
+		max-width: 36rem;
+		color: $text-secondary;
+		font-size: 0.9375rem;
+	}
+
+	&__actions .btn {
+		min-height: 2.75rem;
+	}
+}
