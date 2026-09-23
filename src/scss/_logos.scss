@@ -1,64 +1,93 @@
-// Partner / sponsor logo wells — dark surface; gold monochrome for contrast on dark bg
+// Partner / sponsor logo wells — white wells so full-colour logos clear logoColourClashes on dark panels
 $awards-logo-gold-filter: brightness(0) saturate(100%) invert(72%) sepia(35%) saturate(650%) hue-rotate(5deg)
 	brightness(95%);
 
-.site-header .navbar-brand img.custom-logo,
-.awards-logo-tile img,
-.awards-main-sponsor__logo img,
-.partner-listing-image img {
+// Header mark only — partner / sponsor tile images must stay full-colour.
+.site-header .navbar-brand img.custom-logo {
 	filter: $awards-logo-gold-filter;
 }
 
-.awards-logo-tile {
+.awards-logo-tile img,
+.msr-logo-tile img,
+.awards-main-sponsor__logo img,
+.partner-listing-image img,
+.msr-logo-tile__img {
+	filter: none;
+}
+
+.awards-logo-tile,
+.msr-logo-tile {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 100%;
-	min-height: 6.5rem;
-	padding: 1rem 1.25rem;
-	background: $surface-mid;
-	border: 1px solid $border-mid;
+	width: auto;
+	max-width: 100%;
+	min-width: 9rem;
+	min-height: 7rem;
+	margin-inline: auto;
+	padding: 1.5rem 1.75rem;
+	background: #ffffff;
+	border: 1px solid rgba(14, 76, 146, 0.18);
 	border-radius: 4px;
 	overflow: hidden;
 	box-sizing: border-box;
 
-	img,
-	.msr-card-media__img {
-		display: block;
+	.msr-logo-tile__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: auto;
 		height: auto;
-		max-width: 100%;
-		max-height: 4rem;
-		object-fit: contain;
-		margin: 0 auto;
+		text-decoration: none;
 	}
 
 	.msr-card-media {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 100%;
+		width: auto;
+		height: auto;
 		max-width: 100%;
-		max-height: 4rem;
+		max-height: none;
+		min-height: 0;
 		overflow: hidden;
 		background: transparent;
+		aspect-ratio: auto;
 	}
-}
 
-.awards-logo-tile--compact {
-	min-height: 5rem;
-	min-width: 6.5rem;
-	max-width: 8.5rem;
-	padding: 0.65rem 0.85rem;
+	.msr-logo-tile__link,
+	.msr-card-media {
+		max-width: 100%;
+	}
 
 	img,
+	.msr-logo-tile__img,
 	.msr-card-media__img {
-		max-height: 3.25rem;
+		display: block;
+		width: auto !important;
+		height: auto !important;
+		max-width: 100%;
+		max-height: 6.5rem;
+		object-fit: contain !important;
+		object-position: center;
+		margin: 0;
 	}
 
-	.msr-card-media {
-		max-height: 3.25rem;
+}
+
+.awards-logo-tile--compact,
+.msr-logo-tile--compact {
+	min-width: 6.5rem;
+	min-height: 5rem;
+	padding: 0.75rem 1rem;
+
+	img,
+	.msr-logo-tile__img,
+	.msr-card-media__img {
+		max-width: 100%;
+		max-height: 3.75rem;
 	}
+
 }
 
 .site-header .navbar-brand {
@@ -92,4 +121,12 @@ $awards-logo-gold-filter: brightness(0) saturate(100%) invert(72%) sepia(35%) sa
 		margin-bottom: 0;
 		padding: 0;
 	}
+}
+
+// Main-sponsor bar: keep a wider landscape well (not the square partner card).
+
+.awards-main-sponsor__logo.msr-logo-tile {
+	width: 100%;
+	max-width: 12rem;
+	min-height: 5.5rem;
 }

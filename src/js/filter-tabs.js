@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			tabControls.forEach(function (control) {
 				var isActive = control === activeTab;
 				control.classList.toggle('active', isActive);
+				control.classList.toggle('is-active', isActive);
 				control.setAttribute('aria-selected', isActive ? 'true' : 'false');
 			});
 		}

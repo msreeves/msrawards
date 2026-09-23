@@ -82,6 +82,7 @@
 
 	&__link.is-active,
 	&__link[aria-current='page'],
+	&__tab.is-active,
 	&__tab.active,
 	&__tab[aria-selected='true'] {
 		color: $gold;

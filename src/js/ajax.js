@@ -3,6 +3,11 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
 	document.querySelectorAll('.btn-load-more').forEach(function(button) {
+		if (button.dataset.msrLoadmoreBound === '1') {
+			return;
+		}
+		button.dataset.msrLoadmoreBound = '1';
+
 		button.addEventListener('click', function(e) {
 			e.preventDefault();
 

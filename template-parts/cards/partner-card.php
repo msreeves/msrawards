@@ -31,12 +31,12 @@ if ( $link['url'] ) {
 ?>
 <div class="<?php echo esc_attr( $compact ? 'awards-partner-chip' : 'mx-auto mb-3 col-md-6 col-lg-4' ); ?>">
 	<article <?php post_class( $compact ? 'partner-card partner-card--compact' : 'partner-card panel msr-reveal msr-reveal--up' ); ?>>
-		<div class="partner-listing-image awards-logo-tile<?php echo $compact ? ' awards-logo-tile--compact' : ''; ?>">
+		<div class="partner-listing-image awards-logo-tile msr-logo-tile<?php echo $compact ? ' awards-logo-tile--compact msr-logo-tile--compact' : ''; ?>">
 			<?php
 			if ( $link['url'] ) {
-				msrawards_render_card_media( null, 'medium', $media_args );
+				msrawards_render_logo_media( null, 'medium_large', $media_args );
 			} else {
-				msrawards_render_card_media( null, 'medium' );
+				msrawards_render_logo_media( null, 'medium_large' );
 			}
 			?>
 		</div>
