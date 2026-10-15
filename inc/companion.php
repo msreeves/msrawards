@@ -13,7 +13,7 @@
  * @return string
  */
 function msrawards_get_companion_demo_url_default() {
-	return 'http://127.0.0.1:8888/sites/portfolio/projects/event-companion/?event=msrawards';
+	return 'http://127.0.0.1/sites/portfolio/projects/event-companion/?event=msrawards';
 }
 
 /**

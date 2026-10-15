@@ -21,6 +21,7 @@ require_once get_template_directory() . '/inc/acf.php';
 require_once get_template_directory() . '/inc/options.php';
 require_once get_template_directory() . '/inc/people.php';
 require_once get_template_directory() . '/inc/search.php';
+require_once get_template_directory() . '/inc/url-hygiene.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/seo.php';
 require_once get_template_directory() . '/inc/portfolio.php';

@@ -14,19 +14,19 @@ function msrawards_get_ecosystem_link_defaults() {
 	return array(
 		'hub'        => array(
 			'label'       => __( 'MSR Events hub', 'msrawards' ),
-			'url'         => 'http://msrevents.local:8888/',
+			'url'         => 'http://msrevents.local/',
 			'description' => __( 'Discover programmes, browse the events archive, and follow ceremony routing across the MSR demonstration estate.', 'msrawards' ),
 			'cta'         => __( 'Visit the events hub', 'msrawards' ),
 		),
 		'publishing' => array(
 			'label'       => __( 'Atlas Briefing insights', 'msrawards' ),
-			'url'         => 'http://127.0.0.1:8888/sites/wp/msrpublishing/insights/',
+			'url'         => 'http://127.0.0.1/sites/wp/msrpublishing/insights/',
 			'description' => __( 'Winner stories, industry commentary, and resource library content from the Atlas Briefing publisher demo.', 'msrawards' ),
 			'cta'         => __( 'Read Atlas Briefing', 'msrawards' ),
 		),
 		'ceremony'   => array(
 			'label'       => __( 'Awards ceremony event', 'msrawards' ),
-			'url'         => 'http://msrevents.local:8888/event/msrawards/',
+			'url'         => 'http://msrevents.local/event/msrawards/',
 			'description' => __( 'Ceremony and programme detail on the MSR Events hub — how the awards season connects to live event pages.', 'msrawards' ),
 			'cta'         => __( 'View ceremony page', 'msrawards' ),
 		),

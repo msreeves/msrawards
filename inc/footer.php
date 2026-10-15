@@ -38,7 +38,7 @@ function msrawards_render_footer_social_menu() {
 				<?php if ( empty( $item->url ) ) { continue; } ?>
 				<a
 					class="awards-site-footer__social-link"
-					href="<?php echo esc_url( $item->url ); ?>"
+					href="<?php echo esc_url( msrawards_normalize_external_url( $item->url ) ); ?>"
 					target="_blank"
 					rel="noopener noreferrer"
 					aria-label="<?php echo esc_attr( $item->title ); ?>"
