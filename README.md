@@ -1,4 +1,6 @@
 /_
+
+**All agents, all areas:** this folder follows the workspace one-team law — [`docs/law/agent-collaboration.md`](../../../../../../docs/law/agent-collaboration.md) · handover [`docs/reference/agent-handover.md`](../../../../../../docs/reference/agent-handover.md) · commits are automatic ([`repos.md`](../../../../../../docs/law/repos.md#automatic-commit--push-official-process)).
 Theme Name: msrawards
 Theme URI: https: //www.msreeves.co.uk/events/msrawards
 Description: This is my MSR Sawards theme created from scratch files in Wordpress, it is a Wordpress events website to is focused on a event heavy awards website (Create Custom Posts, posts split by categories etc, hosting sub-events). It is built with Node.js modules and compiled with sass to complie css with webpack and laravel-mix.
